@@ -5256,5 +5256,3 @@ export const productos = [
     "PRECIOCONIVA": 630
   }
 ];
-
-module.exports = productos;
