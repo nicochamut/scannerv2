@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { DivBarcode } from "../BarCodeComponent/BarCodeComponent";
 
 const ProductDetails = ({ product }) => {
-  console.log(product);
+
   const { DESCRIART, PRECIOCONIVA, COD_SCANER } = product;
   return (
     <StyledDetails>
