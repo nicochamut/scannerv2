@@ -3,18 +3,18 @@ import { DivBarcode } from "../BarCodeComponent/BarCodeComponent";
 
 const ProductDetails = ({ product }) => {
   console.log(product);
-  const { descriart, precio, cod_scanner } = product;
+  const { DESCRIART, PRECIOCONIVA, COD_SCANER } = product;
   return (
     <StyledDetails>
       <div className="codart">
         <h3>Cod artículo:</h3>
-        <h2>{cod_scanner}</h2>
+        <h2>{COD_SCANER}</h2>
       </div>
       <div className="nombre">
-        <h1>{descriart}</h1>
+        <h1>{DESCRIART}</h1>
       </div>
       <div className="precio">
-        <h1>${precio}</h1>
+        <h1>${PRECIOCONIVA}</h1>
       </div>
     </StyledDetails>
   );

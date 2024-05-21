@@ -6,13 +6,14 @@ import Exceptions from "./Exceptions";
 
 // Importa los datos de productos
 import { productos } from "../../Data/Data";
+console.log(productos);
 
 const ProductCard = () => {
   const [inputValue, setInputValue] = useState("");
   const [productExist, setProductExist] = useState(false);
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(false); // Estado para controlar si hay un error
-
+  console.log(typeof inputValue);
   const inputRef = useRef(null);
 
   const setTimer = () => {
@@ -29,7 +30,7 @@ const ProductCard = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const productFound = productos.find(
-      (producto) => producto.cod_scanner === inputValue
+      (producto) => producto.COD_SCANER === parseInt(inputValue)
     );
 
     if (productFound) {
