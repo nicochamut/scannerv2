@@ -1,4 +1,4 @@
-export const productos = [
+[
   {
     "COD_SCANER": 7790968910871,
     "DESCRIART": "ELAION DIES 15W40x1L",
@@ -5255,4 +5255,4 @@ export const productos = [
     "CODART": 2118,
     "PRECIOCONIVA": 630
   }
-];
+]
