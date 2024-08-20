@@ -8,6 +8,7 @@ const BarCodeComponent = () => {
         <div className="titulo">
           <h2>Escaneá tu producto.</h2>
         </div>
+    
 
         <div className="barcode">
           <img src={image} alt="imagw" />

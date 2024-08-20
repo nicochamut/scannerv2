@@ -1,0 +1,4 @@
+[
+  { "COD_SCANER": 123, "nombre": "Producto 1", "precio": 100 },
+  { "COD_SCANER": 456, "nombre": "Producto 2", "precio": 200 }
+]

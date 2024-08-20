@@ -1,20 +1,35 @@
-import styled from "styled-components";
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ProductDetails from "./ProductDetails";
 import BarCodeComponent from "../BarCodeComponent/BarCodeComponent";
 import Exceptions from "./Exceptions";
 
-// Importa los datos de productos
-import { productos } from "../../Data/Data";
-console.log(productos);
+import styled from "styled-components";
 
 const ProductCard = () => {
+  const [productos, setProductos] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [productExist, setProductExist] = useState(false);
   const [product, setProduct] = useState(null);
-  const [error, setError] = useState(false); // Estado para controlar si hay un error
-  console.log(typeof inputValue);
+  const [error, setError] = useState(false);
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    const fetchProductos = async () => {
+      try {
+        const response = await fetch("/productos.json"); // Ruta al archivo JSON en la carpeta public
+        const data = await response.json();
+        setProductos(data);
+      } catch (error) {
+        console.error("Error al cargar los productos:", error);
+      }
+    };
+
+    fetchProductos(); // Cargar productos inicialmente
+
+    const interval = setInterval(fetchProductos, 120000); // Actualizar cada 2 minutos
+
+    return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
+  }, []);
 
   const setTimer = () => {
     setTimeout(() => {
@@ -37,9 +52,9 @@ const ProductCard = () => {
       setProduct(productFound);
       setProductExist(true);
       setTimer();
-      setError(false); // Reiniciar el estado de error
+      setError(false);
     } else {
-      setError(true); // Configurar el estado de error
+      setError(true);
       setTimer();
     }
 
@@ -48,7 +63,7 @@ const ProductCard = () => {
 
   return (
     <ProductStyled>
-      {error ? ( // Mostrar el mensaje de error si hay un error
+      {error ? (
         <Exceptions />
       ) : productExist ? (
         <ProductDetails product={product} />
