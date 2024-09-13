@@ -29,6 +29,8 @@ const ProductCard = () => {
     const interval = setInterval(fetchProductos, 120000); // Actualizar cada 2 minutos
 
     return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
+inputRef.current.focus()
+    
   }, []);
 
   const setTimer = () => {
