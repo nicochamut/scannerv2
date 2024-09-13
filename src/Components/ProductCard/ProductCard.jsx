@@ -92,7 +92,7 @@ const ProductStyled = styled.div`
   border-radius: 8px;
   padding: 2rem;
   .input {
-    opacity: 0;
+    opacity: 1;
   }
   .error-message {
     color: red;
