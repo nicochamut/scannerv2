@@ -67,7 +67,7 @@ const ProductCard = () => {
   };
 
   return (
-    <ProductStyled>
+    <ProductStyled onClick={() => inputRef.current.focus()}>
       {error ? (
         <Exceptions />
       ) : productExist ? (
