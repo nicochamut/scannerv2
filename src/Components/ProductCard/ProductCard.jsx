@@ -5,7 +5,7 @@ import Exceptions from "./Exceptions";
 
 import styled from "styled-components";
 
-const ProductCard = () => {
+const ProductCard = ({fullScreen}) => {
   const [productos, setProductos] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [productExist, setProductExist] = useState(false);
@@ -32,7 +32,7 @@ const ProductCard = () => {
     return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
 
     
-  }, []);
+  }, [fullScreen]);
 
   const setTimer = () => {
     setTimeout(() => {
