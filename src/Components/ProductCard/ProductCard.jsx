@@ -14,6 +14,7 @@ const ProductCard = () => {
   const inputRef = useRef(null);
 
   useEffect(() => {
+    inputRef.current.focus()
     const fetchProductos = async () => {
       try {
         const response = await fetch("/productos.json"); // Ruta al archivo JSON en la carpeta public
@@ -29,7 +30,7 @@ const ProductCard = () => {
     const interval = setInterval(fetchProductos, 120000); // Actualizar cada 2 minutos
 
     return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
-inputRef.current.focus()
+
     
   }, []);
 
@@ -38,10 +39,12 @@ inputRef.current.focus()
       setProductExist(false);
       setError(false);
     }, 8500);
+    inputRef.current.focus()
   };
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+    inputRef.current.focus()
   };
 
   const handleFormSubmit = (e) => {
