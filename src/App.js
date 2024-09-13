@@ -3,13 +3,15 @@ import styled from "styled-components";
 import ProductCard from "./Components/ProductCard/ProductCard";
 import imageoleum from "./images/oleum.webp";
 import FullScreenButton from "./Components/FullScreen/FullScreenButton";
+import {useState} from "React"
 
 function App() {
+  const [fullScreen, setFullScreen] = useState(False)
   return (
     <StyledApp className="App">
       <GlobalStyles />
-      <FullScreenButton className="fullscreen" />
-      <ProductCard />
+      <FullScreenButton className="fullscreen" onClick={() => setFullScreen(true)}/>
+      <ProductCard fullScreen= {fullScreen}/>
 
       <div className="imageoleum">
         <img className="imageoleum" src={imageoleum} alt="imagw" />
