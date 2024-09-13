@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProductCard from "./Components/ProductCard/ProductCard";
 import imageoleum from "./images/oleum.webp";
 import FullScreenButton from "./Components/FullScreen/FullScreenButton";
-import {useState} from "React"
+import {useState} from "React";
 
 function App() {
   const [fullScreen, setFullScreen] = useState(False)
