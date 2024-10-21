@@ -4,11 +4,13 @@ import ProductCard from "./Components/ProductCard/ProductCard";
 import imageoleum from "./images/oleum.webp";
 import FullScreenButton from "./Components/FullScreen/FullScreenButton";
 
+
 function App() {
+  
   return (
     <StyledApp className="App">
       <GlobalStyles />
-      <FullScreenButton className="fullscreen" />
+      <FullScreenButton className="fullscreen"/>
       <ProductCard />
       <div className="imageoleum">
         <img className="imageoleum" src={imageoleum} alt="imagw" />

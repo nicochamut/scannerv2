@@ -45,6 +45,7 @@ const ProductCard = () => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+    inputRef.current.focus()
   };
 
   const handleFormSubmit = (e) => {
@@ -67,6 +68,7 @@ const ProductCard = () => {
   };
 
   return (
+    <ProductStyled onClick={() => inputRef.current.focus()}>
     <ProductStyled onClick={() => inputRef.current.focus()}>
       {error ? (
         <Exceptions />
@@ -97,6 +99,7 @@ const ProductStyled = styled.div`
   border-radius: 8px;
   padding: 2rem;
   .input {
+    opacity: 0;
     opacity: 0;
   }
   .error-message {
