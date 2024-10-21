@@ -10,7 +10,6 @@ function App() {
       <GlobalStyles />
       <FullScreenButton className="fullscreen" />
       <ProductCard />
-
       <div className="imageoleum">
         <img className="imageoleum" src={imageoleum} alt="imagw" />
       </div>

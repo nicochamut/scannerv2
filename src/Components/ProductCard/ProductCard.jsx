@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import ProductDetails from "./ProductDetails";
 import BarCodeComponent from "../BarCodeComponent/BarCodeComponent";
 import Exceptions from "./Exceptions";
-
 import styled from "styled-components";
 
 const ProductCard = () => {
@@ -13,10 +12,15 @@ const ProductCard = () => {
   const [error, setError] = useState(false);
   const inputRef = useRef(null);
 
+  // useEffect para cargar productos y actualizar cada 2 minutos
   useEffect(() => {
+    inputRef.current.focus();
+
     const fetchProductos = async () => {
       try {
-        const response = await fetch("/productos.json"); // Ruta al archivo JSON en la carpeta public
+        const response = await fetch(
+          `/productos.json?timestamp=${new Date().getTime()}`
+        );
         const data = await response.json();
         setProductos(data);
       } catch (error) {
@@ -24,11 +28,11 @@ const ProductCard = () => {
       }
     };
 
-    fetchProductos(); // Cargar productos inicialmente
+    fetchProductos();
 
-    const interval = setInterval(fetchProductos, 120000); // Actualizar cada 2 minutos
+    const interval = setInterval(fetchProductos, 120000);
 
-    return () => clearInterval(interval); // Limpiar el intervalo al desmontar el componente
+    return () => clearInterval(interval);
   }, []);
 
   const setTimer = () => {
@@ -36,6 +40,7 @@ const ProductCard = () => {
       setProductExist(false);
       setError(false);
     }, 8500);
+    inputRef.current.focus();
   };
 
   const handleInputChange = (e) => {
@@ -62,7 +67,7 @@ const ProductCard = () => {
   };
 
   return (
-    <ProductStyled>
+    <ProductStyled onClick={() => inputRef.current.focus()}>
       {error ? (
         <Exceptions />
       ) : productExist ? (
@@ -92,7 +97,7 @@ const ProductStyled = styled.div`
   border-radius: 8px;
   padding: 2rem;
   .input {
-    opacity: 1;
+    opacity: 0;
   }
   .error-message {
     color: red;

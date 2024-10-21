@@ -8,7 +8,6 @@ const BarCodeComponent = () => {
         <div className="titulo">
           <h2>Escaneá tu producto.</h2>
         </div>
-    
 
         <div className="barcode">
           <img src={image} alt="imagw" />
@@ -31,9 +30,6 @@ export const DivBarcode = styled.div`
   background: #929e91;
 
   @media screen and (max-width: 1024px) {
-    /* Aquí puedes definir estilos específicos para tabletas */
-    /* Por ejemplo: */
-
     width: 45rem;
     height: 25rem;
     margin: 0px;
@@ -47,10 +43,6 @@ export const DivBarcode = styled.div`
     align-items: center;
     flex-direction: column;
     height: 30rem;
-    @media screen and (max-width: 1024px) {
-      /* Aquí puedes definir estilos específicos para tabletas */
-      /* Por ejemplo: */
-    }
   }
   .titulo {
     background: #2b2e2b;
@@ -61,13 +53,8 @@ export const DivBarcode = styled.div`
     width: 100%;
     font-size: 2.57rem;
     @media screen and (max-width: 1024px) {
-      /* Aquí puedes definir estilos específicos para tabletas */
-      /* Por ejemplo: */
-
       margin: 0 auto;
       font-size: 2rem;
-
-      /* Otros estilos específicos para tabletas */
     }
   }
   .barcode {
@@ -81,9 +68,6 @@ export const DivBarcode = styled.div`
       height: 32rem;
     }
     @media screen and (max-width: 1024px) {
-      /* Aquí puedes definir estilos específicos para tabletas */
-      /* Por ejemplo: */
-
       width: 100%;
       margin: 0 auto;
       height: 40%;
@@ -93,8 +77,6 @@ export const DivBarcode = styled.div`
         margin: 0;
         width: 40rem;
       }
-
-      /* Otros estilos específicos para tabletas */
     }
   }
 `;
